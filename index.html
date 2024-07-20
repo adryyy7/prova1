@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Il sito di Vino & Amore, dedicato agli amanti del buon vino.">
+    <title>Vino & Amore</title>
+    <link rel="icon" href="icona.jpg" type="image/jpg">
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .immaginiScorrimento {
+            position: relative;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 1s;
+            image-rendering: -webkit-optimize-contrast; /* Migliora la qualità delle immagini su WebKit/Safari */
+            image-rendering: crisp-edges; /* Migliora la qualità delle immagini su altri browser */
+        }
+
+        .slide.active {
+            opacity: 1;
+        }
+
+        .centered-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 1;
+        }
+
+        .centered-image {
+            max-width: 300px;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .link {
+            margin-top: 20px;
+        }
+
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #f0f0f0;
+            color: #754909;
+            text-decoration: none;
+            border: 1px solid black;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-right: 10px;
+            transition: background-color 0.3s ease;
+        }
+
+        .button:hover {
+            background-color: #e0e0e0;
+            color: #754909;
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="immaginiScorrimento">
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/477013146.jpg?k=4009c901c246d05debc70060f9fdb8bfb249b03fb7a3d2f72909277a4c954d1f&o=" alt="Immagine 1" class="slide active">
+        <img src="IMG_3941.PNG" alt="Immagine 2" class="slide">
+        <img src="https://cf2.bstatic.com/xdata/images/hotel/max1024x768/477013284.jpg?k=e4582fd5eb68ba2202a25ce672d9f71e44635ba18987537972610efbbebf2a95&o=&hp=1" alt="Immagine 3" class="slide">
+        <img src="IMG_3940.PNG" alt="Immagine 4" class="slide">
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/477013301.jpg?k=919abc1ab7796dc0be9819d2900820feba5736af0d8a574ea2793e40f592ddf2&o=&hp=1" alt="Immagine 5" class="slide">
+        <img src="https://cf.bstatic.com/xdata/images/hotel/max1024x768/477046045.jpg?k=b092a9912e9be52a3e9381e8ca7a4e1e7bd5f194e03aa273d60df22d3a3b8bd8&o=&hp=1" alt="Immagine 4" class="slide">
+    </div>
+    <div class="centered-container">
+        <img src="icona.jpg" alt="Immagine al centro" class="centered-image">
+        <div class="link">
+            <a href="vino_&_amore.html" class="button">ITA</a>
+            <a href="vino_&_amore_eng.html" class="button">ENG</a>
+        </div>
+    </div>
+
+    <script>
+        let currentIndex = 0;
+        const slides = document.querySelectorAll('.slide');
+
+        function showNextSlide() {
+            slides[currentIndex].classList.remove('active');
+            currentIndex = (currentIndex + 1) % slides.length;
+            slides[currentIndex].classList.add('active');
+        }
+
+        setInterval(showNextSlide, 2000);
+    </script>
+</body>
+</html>

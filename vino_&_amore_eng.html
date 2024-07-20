@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <title>Vino & Amore</title>
+    <style>
+        body {
+            font-family: "Cormorant Garamond", Georgia, serif;
+            font-weight: 400;
+            font-size: 18px;
+            line-height: 1.7;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+
+        .background-header-hero {
+            position: relative;
+            background: url('IMG_3941.PNG') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            padding: 50px 0;
+            height: 851px;
+        }
+
+        .background-header-hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.75);
+            z-index: 1;
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            text-align: center;
+            padding: 10px 0;
+            transition: background-color 0.3s ease;
+        }
+
+        header.scrolled {
+            background-color: white;
+        }
+
+        header.scrolled nav a {
+            color: #333;
+        }
+
+        header.scrolled nav .separator {
+            color: #333;
+        }
+
+        .hero {
+            margin-top: 200px;
+        }
+
+        header h1, .hero h1, .hero p {
+            position: relative;
+            z-index: 3;
+        }
+
+        nav {
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        nav a {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 15px;
+            text-decoration: none;
+            letter-spacing: 1px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        nav a:hover {
+            color: white;
+        }
+
+        nav span.separator {
+            color: rgba(255, 255, 255, 0.7);
+            margin: 0 15px;
+        }
+
+        .container {
+            padding: 20px;
+            margin-top: -12px;
+        }
+
+        .content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-left: -300px;
+            margin-right: 50px;
+        }
+
+        .content2 {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            margin-left: 20px;
+            margin-right: 50px;
+            margin-top: 224px;
+        }
+
+        .content div {
+            background-color: white;
+            color: black;
+            margin: 50px;
+            padding: 20px;
+            width: calc(50% - 100px);
+        }
+
+        .content2 div {
+            width: calc(50% - 60px);
+        }
+
+        .satisfy-regular {
+            font-family: "Satisfy", cursive;
+            font-weight: 400;
+            font-style: normal;
+            font-size: 30px;
+            color: #754909;
+        }
+
+        a.gold-link {
+            color: #D4AF37;
+            text-decoration: none;
+        }
+
+        .call-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            background-color: #754909;
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+        }
+
+        .call-button:hover {
+            background-color: #5a3907;
+        }
+
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-gap: 20px;
+            max-width: 1200px;
+            width: 100%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+        .grid-item {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 100%;
+        }
+        .grid-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 600px) {
+            .grid-container {
+                grid-template-columns: 1fr; /* Set to 1 column */
+                grid-gap: 5px; /* Adjust gap between images */
+            }
+            .grid-item {
+                height: 200px; /* Adjust height for mobile devices */
+            }
+        }
+
+        .content#prenota {
+            display: flex;
+            justify-content: flex-start;
+            gap: 20px; /* Distanza tra la sezione contattaci e il carosello */
+            margin-left: 209px;
+        }
+        .content#prenota > div:first-child {
+            margin-right: 0;
+            width: 30%; /* Imposta una larghezza fissa */
+        }
+
+
+        @media (max-width: 600px) {
+        .content {
+            display: block;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .content div {
+            width: 100%;
+            margin: 0;
+            padding: 10px;
+        }
+
+        .content2 {
+            margin-top: 0;
+        }
+
+        .content2 div {
+            width: 100%;
+            margin: 0;
+            padding: 10px;
+        }
+
+        .content#prenota {
+            display: block;
+            margin-left: 0;
+            justify-content: center;
+        }
+
+        .content#prenota > div:first-child {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+    }
+
+        footer img {
+            width: 40px; /* Imposta la larghezza delle immagini */
+            height: auto; /* Imposta l'altezza in modo proporzionale */
+            margin-bottom: -10px; /* Per allineare l'immagine con il testo */
+        }
+
+/* Modifiche per dispositivi mobili */
+@media (max-width: 600px) {
+    .hero {
+        margin-top: 100px; /* Riduci il margine superiore */
+    }
+
+    .container {
+        padding: 10px; /* Riduci il padding */
+    }
+
+    .content {
+        display: block; /* Passa a un layout a colonna singola */
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .content div {
+        width: 100%; /* Imposta la larghezza a pieno schermo */
+        margin: 0;
+        padding: 10px;
+    }
+
+    .content2 {
+        margin-top: 0; /* Modifica il margine superiore */
+    }
+
+    .content#prenota {
+        display: block;
+        margin-left: 0;
+        justify-content: center; /* Centra il contenuto */
+    }
+
+    .content#prenota > div:first-child {
+        width: 100%; /* Larghezza pieno schermo per il primo div */
+        margin-bottom: 20px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header id="main-header">
+        <h1 style="color: #6b4307; font-family: 'Futura', 'Gill Sans', 'Century Gothic', sans-serif; font-size: 60px;">Vino & Amore</h1>
+        <nav>
+            <a href="index.html">HOME</a>
+            <a href="#chi_siamo">ABOUT US</a>
+            <a href="#contatti">INFO</a>
+            <a href="#prenota">CONTACT US</a>
+            <span class="separator">|</span>
+            <a href="trulli.html" target="_blank">HOLIDAY HOUSES</a>
+        </nav>
+    </header>
+    <div class="background-header-hero">
+        <div class="hero">
+            <h1 style="font-size: 80px; font-weight: 700">" Wine adds a smile to friendship and a spark to love "</h1>
+        </div>
+    </div>
+    <div class="container">
+        <div id="chi_siamo" class="content">
+            <div>
+                <h2 class="satisfy-regular">About Us</h2>
+                <p style="font-size: 18px; line-height: 1.7; color: black;">An activity that was born way back in 1900 by a family with a passion for cooking and high quality raw materials, with attention to typical foods of the local culinary tradition. Originally it was born as a modest sales point, the typical place which at the time was called "FOOD".
+                    To date, the business, while maintaining the principles and its unique identity, matured over time, offers the products in a new version with a modern and contemporary twist, without ever moving away from the quality, professionalism and personalization of the service, all also implemented through new methodologies with the aim of improving efficiency and modernizing processes.
+                    What is important is that the historical evolution of the activity takes place while always maintaining its characteristic and family atmosphere, constantly committing itself to selecting more and more products processed in full respect of local traditions and of Made in Italy. Vino & Amore is therefore a Gourmet deli-butchery of the highest quality that will offer you a warm and welcoming atmosphere, thanks above all to its friendly and professional staff.
+                </p>
+                <a href="menu.pdf" class="call-button" target="_blank">MENU</a>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <center>
+            <div class="grid-container">
+                <div class="grid-item"><a href="https://www.instagram.com/vinoeamore2021" target="_blank"><img src="1.jpg" alt="Image 1"></a></div>
+                <div class="grid-item"><a href="https://www.instagram.com/vinoeamore2021" target="_blank"><img src="2.jpg" alt="Image 2"></a></div>
+                <div class="grid-item"><a href="https://www.instagram.com/vinoeamore2021" target="_blank"><img src="3.jpg" alt="Image 3"></a></div>
+                <div class="grid-item"><a href="https://www.instagram.com/vinoeamore2021" target="_blank"><img src="4.jpg" alt="Image 4"></a></div>
+                <div class="grid-item"><a href="https://www.instagram.com/vinoeamore2021" target="_blank"><img src="5.jpg" alt="Image 5"></a></div>
+                <div class="grid-item"><a href="https://www.instagram.com/vinoeamore2021" target="_blank"><img src="6.jpg" alt="Image 6"></a></div>
+                <div class="grid-item"><a href="https://www.instagram.com/vinoeamore2021" target="_blank"><img src="7.jpg" alt="Image 7"></a></div>
+                <div class="grid-item"><a href="https://www.instagram.com/vinoeamore2021" target="_blank"><img src="8.jpg" alt="Image 8"></a></div>
+                <div class="grid-item"><a href="https://www.instagram.com/vinoeamore2021" target="_blank"><img src="9.jpg" alt="Image 9"></a></div>
+                <div class="grid-item"><a href="https://www.instagram.com/vinoeamore2021" target="_blank"><img src="10.jpg" alt="Image 10"></a></div>
+                <div class="grid-item"><a href="https://www.instagram.com/vinoeamore2021" target="_blank"><img src="11.jpg" alt="Image 11"></a></div>
+                <div class="grid-item"><a href="https://www.instagram.com/vinoeamore2021" target="_blank"><img src="12.jpg" alt="Image 12"></a></div>
+            </div>
+        </center>
+        <div id="contatti" class="content2">
+            <div>
+                <h2 class="satisfy-regular"><center>Info</center></h2>
+                <center>
+                <p><b>Address</b>: <a class="gold-link" href="https://www.google.com/maps/place/Vino+%26+Amore/@40.7858429,17.2335368,17z/data=!3m2!4b1!5s0x1347b2646c9b4f1d:0xbc21092f6ac81a71!4m6!3m5!1s0x1347b3c3a2b62a81:0x1a6a9f2880bef432!8m2!3d40.7858389!4d17.2361117!16s%2Fg%2F11ny2kkc40?authuser=0&entry=ttu" target="_blank"><span style="color: #754909;">Corso Vittorio Emanuele 76, 70011, Alberobello, Italy</span></a></p>
+                <p><b>Telephone</b>: <a class="gold-link" href="tel:+393392824311"><span style="color: #754909;">+39 3392824311</span></a></p>
+                <p><b>Mail</b>: <a class="gold-link" href="mailto:vinoeamore@gmail.com"><span style="color: #754909;">vinoeamore2021@gmail.com</span></a></p>
+                </center>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <center>
+            <div class="grid-container">
+                <div class="grid-item"><a href="https://www.instagram.com/vinoeamore2021" target="_blank"><img src="1.jpg" alt="Image 1"></a></div>
+                <div class="grid-item"><a href="https://www.instagram.com/vinoeamore2021" target="_blank"><img src="2.jpg" alt="Image 2"></a></div>
+                <div class="grid-item"><a href="https://www.instagram.com/vinoeamore2021" target="_blank"><img src="3.jpg" alt="Image 3"></a></div>
+                <div class="grid-item"><a href="https://www.instagram.com/vinoeamore2021" target="_blank"><img src="5.jpg" alt="Image 5"></a></div>
+                <div class="grid-item"><a href="https://www.instagram.com/vinoeamore2021" target="_blank"><img src="6.jpg" alt="Image 6"></a></div>
+                <div class="grid-item"><a href="https://www.instagram.com/vinoeamore2021" target="_blank"><img src="7.jpg" alt="Image 7"></a></div>
+                <div class="grid-item"><a href="https://www.instagram.com/vinoeamore2021" target="_blank"><img src="8.jpg" alt="Image 8"></a></div>
+                <div class="grid-item"><a href="https://www.instagram.com/vinoeamore2021" target="_blank"><img src="10.jpg" alt="Image 10"></a></div>
+            </div>
+        </center>
+        <div id="prenota" class="content2">
+            <div>
+                <center>
+                    <h2 class="satisfy-regular">Contact Us</h2>
+                    <p>Call our number for more information!</p>
+                    <a href="tel:+393392824311" class="call-button">CALL</a>
+                </center>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <footer>
+        <p>&copy; 2024 Wine & Love. All rights reserved.</p>
+        <a href="https://www.instagram.com/vinoeamore2021?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank">
+            <img src="instagram_icon.png" alt="Instagram">
+        </a>
+        <a href="https://www.facebook.com/VinoeAmore2021" target="_blank">
+            <img src="facebook_icon.png" alt="Facebook">
+        </a>
+    </footer>
+    <script>
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 150) {
+                header.classList.add('scrolled');
+            } else {
+                header.classList.remove('scrolled');
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                var targetElement = document.querySelector(this.getAttribute('href'));
+                var headerOffset = document.getElementById('main-header').offsetHeight;
+                var elementPosition = targetElement.offsetTop;
+                var offsetPosition = elementPosition - headerOffset;
+
+                window.scrollTo({
+                    top: offsetPosition,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
